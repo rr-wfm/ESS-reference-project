@@ -1,0 +1,70 @@
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  z-index: 1;
+}
+
+.nav {
+  margin: 0 auto;
+  max-width: 64rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.navLink {
+  border-radius: 9999px;
+  padding: 0.75rem;
+  color: #00005d;
+  transition: background-color 160ms ease;
+}
+
+.navLink:hover {
+  background: rgba(0, 0, 93, 0.1);
+}
+
+.navLinkActive {
+  background: #00005d;
+  color: #fff;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+.iconHome {
+  mask-image: url('/icons/home.svg');
+  -webkit-mask-image: url('/icons/home.svg');
+}
+
+.iconCalendar {
+  mask-image: url('/icons/calendar.svg');
+  -webkit-mask-image: url('/icons/calendar.svg');
+}
+
+.iconBell {
+  mask-image: url('/icons/bell.svg');
+  -webkit-mask-image: url('/icons/bell.svg');
+}
+
+@media (min-width: 640px) {
+  .nav {
+    gap: 1rem;
+  }
+}

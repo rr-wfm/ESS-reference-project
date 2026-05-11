@@ -1,0 +1,81 @@
+.section {
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  padding: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.tableWrap {
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.table {
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.headRow {
+  text-align: left;
+  color: #475569;
+}
+
+.th {
+  padding: 0.5rem;
+}
+
+.tbody tr + tr td {
+  border-top: 1px solid #f1f5f9;
+}
+
+.td {
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: #1e293b;
+}
+
+.tdMono {
+  padding: 0.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.uri {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: #00005d;
+}
+
+.empty {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 1.25rem;
+  }
+}

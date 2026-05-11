@@ -1,0 +1,38 @@
+.section {
+  margin: 0 auto;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 64rem;
+  display: flex;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+.panel {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.message {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+}

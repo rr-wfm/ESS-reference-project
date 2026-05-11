@@ -1,0 +1,50 @@
+.card {
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  padding: 1rem;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #00005d;
+}
+
+.title {
+  margin: 0.5rem 0 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #334155;
+}
+
+.term {
+  margin: 0;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

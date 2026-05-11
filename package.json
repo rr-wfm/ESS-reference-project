@@ -1,0 +1,46 @@
+{
+  "name": "rr-ess-referenceapp",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "concurrently \"bun run server\" \"vite --host\"",
+    "server": "bun --watch run server/index.ts",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.100.9",
+    "hono": "^4.10.1",
+    "jwt-decode": "^4.0.0",
+    "luxon": "^3.7.2",
+    "oauth4webapi": "^3.8.6",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-router-dom": "^7.9.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@eslint/js": "^10.0.1",
+    "@rolldown/plugin-babel": "^0.2.3",
+    "@tailwindcss/vite": "^4.1.15",
+    "@types/babel__core": "^7.20.5",
+    "@types/luxon": "^3.7.1",
+    "@types/node": "^24.12.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^10.2.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.5.0",
+    "tailwindcss": "^4.1.15",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.58.2",
+    "vite": "^8.0.10"
+  }
+}

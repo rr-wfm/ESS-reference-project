@@ -1,0 +1,67 @@
+.section {
+  display: grid;
+  gap: 1rem;
+}
+
+.summaryCard {
+  border-radius: 1rem;
+  padding: 1.25rem;
+  color: #fff;
+  background: #00005d;
+  box-shadow: 0 10px 20px rgba(0, 0, 93, 0.2);
+}
+
+.summaryLabel {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #c7d2fe;
+}
+
+.summaryName {
+  margin: 0.25rem 0 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.summaryMeta {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: #c7d2fe;
+}
+
+.loading {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.error {
+  margin: 0;
+  border-radius: 0.5rem;
+  background: #fff1f2;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  color: #be123c;
+}
+
+.emptyCard {
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+@media (min-width: 640px) {
+  .summaryCard {
+    padding: 1.5rem;
+  }
+
+  .summaryName {
+    font-size: 1.25rem;
+  }
+}
