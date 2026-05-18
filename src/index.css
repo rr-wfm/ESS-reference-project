@@ -1,5 +1,38 @@
 @import 'tailwindcss';
 
+:root,
+[data-theme="default"] {
+  --theme-primary:       #00005d;
+  --theme-primary-rgb:   0, 0, 93;
+  --theme-primary-dark:  #000070;
+  --theme-accent-bg:     rgba(129, 140, 248, 0.10);
+  --theme-accent-light:  #c7d2fe;
+}
+
+[data-theme="green"] {
+  --theme-primary:       #166534;
+  --theme-primary-rgb:   22, 101, 52;
+  --theme-primary-dark:  #14532d;
+  --theme-accent-bg:     rgba(74, 222, 128, 0.10);
+  --theme-accent-light:  #bbf7d0;
+}
+
+[data-theme="yellow"] {
+  --theme-primary:       #eab308;
+  --theme-primary-rgb:   234, 179, 8;
+  --theme-primary-dark:  #ca8a04;
+  --theme-accent-bg:     rgba(251, 191, 36, 0.10);
+  --theme-accent-light:  #fde68a;
+}
+
+[data-theme="red"] {
+  --theme-primary:       #ce1126;
+  --theme-primary-rgb:   206, 17, 38;
+  --theme-primary-dark:  #a80e1f;
+  --theme-accent-bg:     rgba(248, 113, 113, 0.10);
+  --theme-accent-light:  #fecaca;
+}
+
 :root {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;

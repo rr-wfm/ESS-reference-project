@@ -83,7 +83,7 @@ export function AuthenticatedApp({
 
   return (
     <Routes>
-      <Route path="/" element={<Layout workerId={session.workerId} onLogout={onLogout} webhookSubscriptionFailed={webhookSubscriptionFailed} />}>
+      <Route path="/" element={<Layout workerId={session.workerId} onLogout={onLogout} webhookSubscriptionFailed={webhookSubscriptionFailed} schedulingEnabled={hasScheduleModule} />}>
         <Route
           index
           element={

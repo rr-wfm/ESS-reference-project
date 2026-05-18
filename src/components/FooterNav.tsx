@@ -2,6 +2,10 @@ import { memo } from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from './FooterNav.module.css'
 
+type FooterNavProps = {
+  schedulingEnabled: boolean
+}
+
 type FooterIconProps = {
   iconClassName: string
 }
@@ -19,7 +23,7 @@ function navLinkClass({ isActive }: { isActive: boolean }): string {
   return `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
 }
 
-export const FooterNav = memo(function FooterNav() {
+export const FooterNav = memo(function FooterNav({ schedulingEnabled }: Readonly<FooterNavProps>) {
   return (
     <footer className={styles.footer}>
       <nav className={styles.nav}>
@@ -32,14 +36,25 @@ export const FooterNav = memo(function FooterNav() {
         >
           <FooterIcon iconClassName={styles.iconHome} />
         </NavLink>
-        <NavLink
-          to="/scheduling"
-          className={navLinkClass}
-          aria-label="Scheduling"
-          title="Scheduling"
-        >
-          <FooterIcon iconClassName={styles.iconCalendar} />
-        </NavLink>
+        {schedulingEnabled ? (
+          <NavLink
+            to="/scheduling"
+            className={navLinkClass}
+            aria-label="Scheduling"
+            title="Scheduling"
+          >
+            <FooterIcon iconClassName={styles.iconCalendar} />
+          </NavLink>
+        ) : (
+          <span
+            className={`${styles.navLink} ${styles.navLinkDisabled}`}
+            aria-label="Scheduling (not available)"
+            title="Scheduling (not available)"
+            aria-disabled="true"
+          >
+            <FooterIcon iconClassName={styles.iconCalendar} />
+          </span>
+        )}
         <NavLink
           to="/webhooks"
           className={navLinkClass}

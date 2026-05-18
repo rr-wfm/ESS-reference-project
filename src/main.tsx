@@ -13,6 +13,9 @@ const queryClient = new QueryClient({
   },
 })
 
+const theme = import.meta.env.VITE_THEME ?? 'default'
+document.documentElement.dataset.theme = theme
+
 const rootElement = document.getElementById('root')
 if (!rootElement) {
   throw new Error('Root element not found. Check index.html.')

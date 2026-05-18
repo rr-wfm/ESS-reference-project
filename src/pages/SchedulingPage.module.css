@@ -32,8 +32,8 @@
 
 .weekSelect:focus {
   outline: none;
-  border-color: #00005d;
-  box-shadow: 0 0 0 2px rgba(0, 0, 93, 0.2);
+  border-color: var(--theme-primary);
+  box-shadow: 0 0 0 2px rgba(var(--theme-primary-rgb), 0.2);
 }
 
 .tabContainer {
@@ -57,7 +57,7 @@
 }
 
 .tabButtonActive {
-  background: #00005d;
+  background: var(--theme-primary);
   color: #fff;
 }
 
@@ -105,7 +105,7 @@
   cursor: pointer;
   list-style: none;
   padding: 0.75rem 1rem;
-  color: #00005d;
+  color: var(--theme-primary);
   font-size: 0.875rem;
   font-weight: 600;
 }
@@ -151,7 +151,7 @@
   padding: 0.5rem 0.75rem;
   text-align: left;
   font-weight: 600;
-  color: #00005d;
+  color: var(--theme-primary);
   border-bottom: 1px solid #e2e8f0;
   background: #fff;
 }

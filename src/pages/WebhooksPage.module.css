@@ -65,7 +65,7 @@
   white-space: nowrap;
   padding: 0.5rem;
   font-size: 0.75rem;
-  color: #00005d;
+  color: var(--theme-primary);
 }
 
 .empty {

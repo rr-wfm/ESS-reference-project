@@ -7,8 +7,8 @@
   border-radius: 1rem;
   padding: 1.25rem;
   color: #fff;
-  background: #00005d;
-  box-shadow: 0 10px 20px rgba(0, 0, 93, 0.2);
+  background: var(--theme-primary);
+  box-shadow: 0 10px 20px rgba(var(--theme-primary-rgb), 0.2);
 }
 
 .summaryLabel {
@@ -16,7 +16,7 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: #c7d2fe;
+  color: var(--theme-accent-light);
 }
 
 .summaryName {
@@ -28,7 +28,7 @@
 .summaryMeta {
   margin: 0.5rem 0 0;
   font-size: 0.875rem;
-  color: #c7d2fe;
+  color: var(--theme-accent-light);
 }
 
 .loading {

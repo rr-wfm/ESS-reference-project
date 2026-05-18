@@ -7,12 +7,14 @@ type LayoutProps = {
   onLogout: () => void
   workerId: string
   webhookSubscriptionFailed: boolean
+  schedulingEnabled: boolean
 }
 
 export const Layout = memo(function Layout({
   workerId,
   onLogout,
   webhookSubscriptionFailed,
+  schedulingEnabled,
 }: Readonly<LayoutProps>) {
   const [bannerDismissed, setBannerDismissed] = useState(false)
 
@@ -55,7 +57,7 @@ export const Layout = memo(function Layout({
         <Outlet />
       </main>
 
-      <FooterNav />
+      <FooterNav schedulingEnabled={schedulingEnabled} />
     </div>
   )
 })
