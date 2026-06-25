@@ -85,3 +85,68 @@ export type AppSession = {
   workerId: string
   userName?: string
 }
+
+// ===== Worked Hours =====
+
+export type Pause = {
+  startTime: string
+  endTime: string
+  durationMinutes: number
+}
+
+export type ClockedPeriod = {
+  startTime: string
+  endTime: string
+  pauses: Pause[]
+}
+
+export type ClockedHours = {
+  clockedPeriods: ClockedPeriod[]
+}
+
+export type Compensation = {
+  description: string
+  durationMinutes: number
+}
+
+export type WorkedHoursPeriod = {
+  startTime: string
+  endTime: string
+  durationMinutes: number
+  compensations?: Compensation[]
+}
+
+export type WorkedHoursShift = {
+  workedHours?: WorkedHoursPeriod
+  clockedHours?: ClockedHours
+}
+
+export type Absence = {
+  description: string
+  durationMinutes: number
+}
+
+export type WorkedWeekSummary = {
+  workedDurationMinutes: number
+  absenceDurationMinutes: number
+  atvDurationMinutes?: number
+  atvDescription?: string
+}
+
+export type WorkedDay = {
+  date: string
+  shifts: WorkedHoursShift[]
+  absences: Absence[]
+  isProcessed: boolean
+}
+
+export type WorkedWeek = {
+  week: IsoWeek
+  days: WorkedDay[]
+  summary: WorkedWeekSummary
+  hasWorkedHours: boolean
+}
+
+export type WorkedHoursDataContract = {
+  weeks: WorkedWeek[]
+}

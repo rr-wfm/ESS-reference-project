@@ -13,6 +13,10 @@ export function includesScheduleModule(moduleNames: string[]): boolean {
   return moduleNames.some((name) => name.toLowerCase() === 'schedule')
 }
 
+export function includesWorkedHoursModule(moduleNames: string[]): boolean {
+  return moduleNames.some((name) => name.toLowerCase() === 'worked-hours')
+}
+
 export function resolveSelectedWeekKey(
   schedule: ScheduleDataContract | null,
   currentSelection: string,

@@ -22,6 +22,17 @@ export function formatDateTime(input: string): string {
   return parsed.toLocaleString(DateTime.DATETIME_MED)
 }
 
+export function toClockTime(value: string): string {
+  const parsed = DateTime.fromISO(value)
+  return parsed.isValid ? parsed.toFormat('HH:mm') : ''
+}
+
+export function formatDuration(minutes: number): string {
+  const h = Math.floor(minutes / 60)
+  const m = minutes % 60
+  return `${h}:${String(m).padStart(2, '0')}`
+}
+
 export function findNextShift(shifts: Shift[]): Shift | undefined {
   const now = DateTime.now().toMillis()
   return shifts

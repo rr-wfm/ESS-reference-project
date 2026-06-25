@@ -4,6 +4,7 @@ import styles from './FooterNav.module.css'
 
 type FooterNavProps = {
   schedulingEnabled: boolean
+  workedHoursEnabled: boolean
 }
 
 type FooterIconProps = {
@@ -23,7 +24,7 @@ function navLinkClass({ isActive }: { isActive: boolean }): string {
   return `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
 }
 
-export const FooterNav = memo(function FooterNav({ schedulingEnabled }: Readonly<FooterNavProps>) {
+export const FooterNav = memo(function FooterNav({ schedulingEnabled, workedHoursEnabled }: Readonly<FooterNavProps>) {
   return (
     <footer className={styles.footer}>
       <nav className={styles.nav}>
@@ -53,6 +54,25 @@ export const FooterNav = memo(function FooterNav({ schedulingEnabled }: Readonly
             aria-disabled="true"
           >
             <FooterIcon iconClassName={styles.iconCalendar} />
+          </span>
+        )}
+        {workedHoursEnabled ? (
+          <NavLink
+            to="/worked-hours"
+            className={navLinkClass}
+            aria-label="Worked Hours"
+            title="Worked Hours"
+          >
+            <FooterIcon iconClassName={styles.iconClock} />
+          </NavLink>
+        ) : (
+          <span
+            className={`${styles.navLink} ${styles.navLinkDisabled}`}
+            aria-label="Worked Hours (not available)"
+            title="Worked Hours (not available)"
+            aria-disabled="true"
+          >
+            <FooterIcon iconClassName={styles.iconClock} />
           </span>
         )}
         <NavLink

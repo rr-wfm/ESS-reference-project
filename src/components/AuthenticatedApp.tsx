@@ -6,18 +6,21 @@ import { Layout } from './Layout'
 import { HomePage } from '../pages/HomePage'
 import { SchedulingPage } from '../pages/SchedulingPage'
 import { WebhooksPage } from '../pages/WebhooksPage'
+import { WorkedHoursPage } from '../pages/WorkedHoursPage'
 import { findNextShift } from '../lib/date'
 import {
   getModuleNames,
   includesScheduleModule,
+  includesWorkedHoursModule,
   queryErrorMessage,
 } from '../services/appDataService'
-import { fetchModules, fetchSchedule, fetchByUri } from '../services/essApi'
+import { fetchModules, fetchSchedule, fetchWorkedHours, fetchByUri } from '../services/essApi'
 import { useSelectedWeek, useWebhookProcessing } from '../hooks'
 import type {
   AppSession,
   ScheduleDataContract,
   StoredWebhookEvent,
+  WorkedHoursDataContract,
   WorkerModuleAuthorizationResponse,
 } from '../types'
 
@@ -28,8 +31,8 @@ type AuthenticatedAppProps = {
   onLogout: () => void
 }
 
-function AuthenticatedFallback() {
-  return <p className={appStyles.fallback}>Schedule data is not available.</p>
+function AuthenticatedFallback({ message }: Readonly<{ message: string }>) {
+  return <p className={appStyles.fallback}>{message}</p>
 }
 
 export function AuthenticatedApp({
@@ -50,10 +53,21 @@ export function AuthenticatedApp({
     [moduleNames],
   )
 
+  const hasWorkedHoursModule = useMemo(
+    () => includesWorkedHoursModule(moduleNames),
+    [moduleNames],
+  )
+
   const scheduleQuery = useQuery<ScheduleDataContract | null>({
     queryKey: ['schedule', session.workerId],
     enabled: hasScheduleModule,
     queryFn: async () => fetchSchedule(session.workerId),
+  })
+
+  const workedHoursQuery = useQuery<WorkedHoursDataContract | null>({
+    queryKey: ['worked-hours', session.workerId],
+    enabled: hasWorkedHoursModule,
+    queryFn: async () => fetchWorkedHours(session.workerId),
   })
 
   const [selectedWeekKey, setSelectedWeekKey] = useSelectedWeek(scheduleQuery.data ?? null)
@@ -83,7 +97,7 @@ export function AuthenticatedApp({
 
   return (
     <Routes>
-      <Route path="/" element={<Layout workerId={session.workerId} onLogout={onLogout} webhookSubscriptionFailed={webhookSubscriptionFailed} schedulingEnabled={hasScheduleModule} />}>
+      <Route path="/" element={<Layout workerId={session.workerId} onLogout={onLogout} webhookSubscriptionFailed={webhookSubscriptionFailed} schedulingEnabled={hasScheduleModule} workedHoursEnabled={hasWorkedHoursModule} />}>
         <Route
           index
           element={
@@ -106,7 +120,17 @@ export function AuthenticatedApp({
                 onSelectWeek={setSelectedWeekKey}
               />
             ) : (
-              <AuthenticatedFallback />
+              <AuthenticatedFallback message="Schedule data is not available." />
+            )
+          }
+        />
+        <Route
+          path="worked-hours"
+          element={
+            workedHoursQuery.data ? (
+              <WorkedHoursPage weeks={workedHoursQuery.data.weeks ?? []} />
+            ) : (
+              <AuthenticatedFallback message="Worked hours data is not available." />
             )
           }
         />

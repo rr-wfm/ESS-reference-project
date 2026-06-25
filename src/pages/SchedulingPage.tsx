@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo, useState } from 'react'
 import { DateTime } from 'luxon'
-import { weekKey } from '../lib/date'
+import { toClockTime, weekKey } from '../lib/date'
 import styles from './SchedulingPage.module.css'
 import type { OrganizationalUnitSchedule, Shift, WeekSchedule } from '../types'
 
@@ -55,10 +55,6 @@ function uniqueDatesFromSchedules(schedules: OrganizationalUnitSchedule[]): stri
     }
   }
   return Array.from(set).sort((a, b) => a.localeCompare(b))
-}
-
-function toClockTime(value: string): string {
-  return DateTime.fromISO(value).toFormat('HH:mm')
 }
 
 function toDateLabel(value: string): string {

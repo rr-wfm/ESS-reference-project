@@ -68,6 +68,11 @@
   -webkit-mask-image: url('/icons/bell.svg');
 }
 
+.iconClock {
+  mask-image: url('/icons/clock.svg');
+  -webkit-mask-image: url('/icons/clock.svg');
+}
+
 @media (min-width: 640px) {
   .nav {
     gap: 1rem;
